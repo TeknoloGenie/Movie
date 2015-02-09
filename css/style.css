@@ -1,0 +1,132 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #3e3f47;
+  margin-bottom: 100px;
+}
+body strong {
+  font-weight: 800;
+}
+body .point {
+  font-size: 1.8em;
+  font-weight: 100;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+body .point pre {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+body .point pre code {
+  font-size: .75em;
+}
+body .point h4 {
+  color: #0073ea;
+  margin-bottom: 20px;
+}
+body .point .exampleLeadin {
+  font-weight: 300;
+  margin-bottom: 15px;
+  color: #0073ea;
+  margin-top: 40px;
+}
+body .point .excercise {
+  font-size: .8em;
+  border: 2px dashed #f8af3d;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+body .point .sidenote {
+  color: #0073ea;
+  font-size: .6em;
+  padding: 20px;
+  border: 1px solid #1e8dff;
+  background-color: #eaf4ff;
+}
+body .point ol.list,
+body .point ul.list {
+  list-style-type: disc;
+  margin-left: 50px;
+  font-size: .8em;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+body .point ol.list li,
+body .point ul.list li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+body .point ol.list {
+  list-style-type: decimal;
+}
+body.theme h1 {
+  color: #0073ea;
+  font-size: 2em;
+  font-weight: 300;
+}
+body.theme h1.hdr {
+  font-size: 3em;
+  margin-bottom: 60px;
+  margin-top: 60px;
+}
+body.theme h2 {
+  color: #ff0084;
+  font-size: 1.8em;
+  font-weight: 400;
+}
+body.theme .content .row {
+  margin-bottom: 50px;
+}
+body.theme.day .concepts {
+  font-size: 1.8em;
+  font-weight: 100;
+}
+body.theme.day .concepts ul li {
+  margin-bottom: 10px;
+}
+body.theme.day h3 {
+  font-size: 2em;
+  color: #0073ea;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+body.theme.day .refresh {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 1.2em;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 2px dashed #bfbfbf;
+  border-radius: 5px;
+  color: #999999;
+}
+body.theme.home {
+  font-weight: 100;
+}
+body.theme.home .dates {
+  font-size: 1.8em;
+  margin-bottom: 40px;
+}
+body.theme.home .location {
+  font-size: 1.8em;
+}
+body.links {
+  font-weight: 100;
+}
+body.links .link-list ul {
+  font-size: 1.7em;
+}
+body.links .link-list ul li {
+  margin-bottom: 30px;
+}
+body.links .link-list ul li a {
+  color: #0073ea;
+  display: block;
+  margin-top: 5px;
+}
+body.links .link-list ul li a:hover {
+  color: #ff0084;
+}
+body pre code.smallText {
+  font-size: .75em;
+}
