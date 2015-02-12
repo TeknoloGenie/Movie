@@ -7,14 +7,15 @@
      * Get a reference to our new movie form and movie list for use later
      * @type {HTMLElement}
      */
-    var form = document.getElementById("newMovie");
-    var movieList = document.getElementById("movieList");
+    var form = $("#newMovie");
+    var movieList = $("#movieList");
 
-    //TODO: Finish this addEvenListener to listen to the click handler and pass the event argument into its callback
-    movieList.addEventListener('', function () {
+    movieList.on('click', function (evt) {
         var target = evt.target;
 
-        //TODO: create a condition to check if the movie exists if it does then alert the movies preview
+        if (target.movie) {
+            alert(target.movie.preview());
+        }
 
     });
 
@@ -47,7 +48,7 @@
             }
         },
         preview: function preview() {
-            //TODO: Return the first 50 chars of this movies description followed by an ellipses ('...')
+            return this.desc.substr(0, 50) + '...';
         }
     };
 
@@ -64,10 +65,10 @@
         attributes = attributes || {};
         styles = styles || {};
 
-        var newElement = null;//TODO: create the new dom element
+        var newElement = document.createElement(elementType);
 
         if (text) {
-            //TODO: assign newElements 'content' to 'text'
+            newElement.textContent = text;
         }
 
         //set the attributes on the tag
@@ -78,9 +79,13 @@
         }
 
         //set the styles
-        //TODO: Using a 'for in' statement like above add the style attribute to the element and set its styling
+        for (var style in styles) {
+            if (styles.hasOwnProperty(style)) {
+                newElement.style[style] = styles[style];
+            }
+        }
 
-        //TODO: Return the new element
+        return newElement;
     }
 
     /**
@@ -90,7 +95,7 @@
      * @param evt
      */
     function handleNewMovie(evt) {
-        //TODO: hidden bug that your gonna fix will go here. HINT: Every browser has its own default behavior.
+        evt.preventDefault();
 
         /**
          * Store our fields in an object we can loop over later when we want to
@@ -98,22 +103,22 @@
          * @type {{title: HTMLElement, runningTimeInMinutes: HTMLElement, year: HTMLElement, desc: HTMLElement, genreInputs: NodeList}}
          */
 
-        //TODO: Take these 'document.getElementById() and use jQuery's selector
+
         var fields = {
-            title: document.getElementById("movieTitle"),
-            runningTimeInMinutes: document.getElementById("runningTime"),
-            year: document.getElementById("year"),
-            desc: document.getElementById("desc"),
-            genreInputs: document.getElementsByName("genre")
+            title: $('#movieTitle').val(),
+            runningTimeInMinutes: $('#runningTime').val(),
+            year: $('#year').val(),
+            desc: $('#desc').val(),
+            genreInputs: $('[name=genre]')
         };
 
         /**
          * Set the values of each movie field
          */
-        var title = fields.title.value;
-        var runningTimeInMinutes = fields.runningTimeInMinutes.value;
-        var year = fields.year.value;
-        var desc = fields.desc.value;
+        var title = fields.title;
+        var runningTimeInMinutes = fields.runningTimeInMinutes;
+        var year = fields.year;
+        var desc = fields.desc;
         var genre;
 
         /**
@@ -132,37 +137,29 @@
          * function available for alerting as per the spec.
          * @type {Movie}
          */
-        //TODO: Create the new movie instance
-        var movie = '';
+        var movie = new Movie(title, runningTimeInMinutes, year, genre, desc);
 
         /**
          * Create the li element that we'll stick in the dom.
          * @type {HTMLElement}
          */
-        //TODO: Create a <li> with its text the movie title and the style to have a pointer cursor
-        var movieLi = '';
+        var movieLi = e("li", movie.title, {}, {cursor: "pointer"});
         movieLi.movie = movie;
 
         /**
          * Actually stick the li in the dom.
          */
-        //TODO: add the new list item to the list
+        movieList.append(movieLi);
 
         /**
          * Reset all the fields.
          */
-        for (var field in fields) {
-            if (fields.hasOwnProperty(field)) {
-                fields[field].value = "";
-            }
-        }
+        form.find("input, textarea").val("");
     }
 
     /**
      * When the new movie form is submitted, call the handleNewMovie function
      */
-    //TODO: add an event to the form to 'handleNewMovie' when a user submits the form
+    form.on('submit', handleNewMovie);
 
 }());
-
-//TODO: Refactor this entire file to user jQuery wherever you can.
